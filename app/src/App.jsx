@@ -11,21 +11,21 @@ const logos = [
     ElectronImg,
     ReactImg,
     WebpackImg
-]
+];
 
 
 export default class App extends Component {
     render() {
         const logosRender = logos.map( (logo, index) => {
             return <Logo key = {index} src = { logo } />
-        })
+        });
 
         return (
             <div>
                 {logosRender}
 
                 <div className="hello">
-                    <h1>Hello React!</h1>
+                    <h1>Hello React! jadi dadi madafaka</h1>
                 </div>
 
                 <p>

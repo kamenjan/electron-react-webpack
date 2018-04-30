@@ -6,7 +6,9 @@
   "scripts": {
     "bundle": "webpack --mode development",
     "serve": "electron .",
-    "start": "npm-run-all --parallel bundle serve"
+    "back-end": "NODE_ENV=development ./node ./backend/app.js",
+    "start": "npm-run-all --parallel bundle serve back-end",
+    "start-prod": "npm-run-all --parallel serve back-end"
   },
   "author": "J. Renato Ramos González <renato.etc.etc.etc@gmail.com>",
   "repository": "pastahito/electron-react-webpack",
@@ -16,6 +18,7 @@
     "babel-loader": "^7.1.4",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.10",
+    "debug": "3.1.0",
     "electron": "^1.8.2",
     "electron-reload": "^1.2.2",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
@@ -25,6 +28,10 @@
     "webpack-cli": "^2.0.11"
   },
   "dependencies": {
+    "express": "4.16.3",
+    "history": "4.7.2",
+    "lodash": "4.17.10",
+    "morgan": "1.9.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   }
