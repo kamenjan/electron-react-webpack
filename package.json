@@ -5,10 +5,8 @@
   "main": "main_process.js",
   "scripts": {
     "bundle": "webpack --mode development",
-    "serve": "electron .",
-    "back-end": "NODE_ENV=development ./node ./backend/app.js",
-    "start": "npm-run-all --parallel bundle serve back-end",
-    "start-prod": "npm-run-all --parallel serve back-end"
+    "serve": "electron -r babel-register .",
+    "start": "npm-run-all --parallel bundle serve"
   },
   "author": "J. Renato Ramos González <renato.etc.etc.etc@gmail.com>",
   "repository": "pastahito/electron-react-webpack",
@@ -17,6 +15,9 @@
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
     "babel-preset-react": "^6.24.1",
+    "babel-polyfill": "6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "6.26.0",
     "css-loader": "^0.28.10",
     "debug": "3.1.0",
     "electron": "^1.8.2",
