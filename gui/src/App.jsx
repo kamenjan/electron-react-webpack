@@ -1,6 +1,5 @@
-import React, {Component} from 'react'
-import {render} from 'react-dom'
-import Link from './components/Link/'
+import React, {Component} from 'react';
+import {render} from 'react-dom';
 
 
 export default class App extends Component {

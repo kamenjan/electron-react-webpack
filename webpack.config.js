@@ -6,10 +6,10 @@ module.exports = {
 
     target: 'electron-main',
 
-    entry: './app/src/renderer_process.js',
+    entry: './gui/src/renderer_process.js',
 
     output: {
-        path: __dirname + '/app/build',
+        path: __dirname + '/gui/build',
         publicPath: 'build/',
         filename: 'bundle.js'
     },
@@ -17,10 +17,11 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.jsx?$/,
+                test: /\.(js|jsx)$/,
                 loader: 'babel-loader',
                 options: {
-                    presets: ['react']
+                    presets: ['react'],
+					compact: false
                 }
             },
             {

@@ -1,3 +1,5 @@
+// I was running this nodejs express server to handle mongodb, but will not be needed with sqlite3
+
 const express = require('express');
 const app = express();
 let debug = require('debug')('app');
