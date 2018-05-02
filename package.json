@@ -5,8 +5,11 @@
   "main": "main_process.js",
   "scripts": {
     "bundle": "webpack --mode development",
-    "serve": "electron -r babel-register .",
-    "start": "npm-run-all --parallel bundle serve"
+    "serve": "electron .",
+    "start": "npm-run-all --parallel bundle serve",
+	"pack": "build --dir",
+	"dist": "build",
+	"postinstall": "electron-builder install-app-deps"
   },
   "author": "J. Renato Ramos González <renato.etc.etc.etc@gmail.com>",
   "repository": "pastahito/electron-react-webpack",
@@ -20,6 +23,8 @@
     "babel-register": "6.26.0",
     "css-loader": "^0.28.10",
     "debug": "3.1.0",
+	"electron": "^1.8.2",
+    "electron-builder": "20.11.1",
     "electron-rebuild": "1.7.3",
     "electron-reload": "^1.2.2",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
@@ -29,7 +34,6 @@
     "webpack-cli": "^2.0.11"
   },
   "dependencies": {
-    "electron": "^1.8.2",
     "express": "4.16.3",
     "history": "4.7.2",
     "lodash": "4.17.10",
@@ -38,5 +42,32 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "sqlite3": "4.0.0"
+  },
+  "build": {
+    "appId": "yourappid",
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "squirrel",
+      "icon": "build/icon.ico"
+    }
   }
 }

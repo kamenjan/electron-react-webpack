@@ -9,8 +9,8 @@ module.exports = {
     entry: './gui/src/renderer_process.js',
 
     output: {
-        path: __dirname + '/gui/build',
-        publicPath: 'build/',
+        path: __dirname + '/gui/dist',
+        publicPath: 'dist/',
         filename: 'bundle.js'
     },
 

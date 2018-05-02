@@ -27,6 +27,9 @@ $ npm start
 - JS, CSS and assets automatic bundling.
 - Hot reloading via Webpack 4.
 
+## Builidng application
+https://medium.com/how-to-electron/a-complete-guide-to-packaging-your-electron-app-1bdc717d739f
+
 
 ## Folder structure
 ```

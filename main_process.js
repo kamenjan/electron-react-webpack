@@ -1,9 +1,12 @@
 // This is entry point to electron's main process
 
 // Basic init
-import { app, BrowserWindow } from 'electron';
+// import { app, BrowserWindow } from 'electron';
+const electron = require('electron');
+const {app, BrowserWindow} = electron;
 
 // Let electron reloads by itself when webpack watches changes in ./gui/
+// NOTE: This makes the OSX build version of electron app crash (module cannot be found)
 require('electron-reload')(__dirname);
 
 // Require and run spawn for running MongoDB/GraphQL(/Express?) nodejs process
@@ -13,8 +16,8 @@ require('electron-reload')(__dirname);
 // 	cwd: process.cwd()
 // });
 
-// const sqlite3 = require('sqlite3').verbose();
-import sqlite3 from 'sqlite3';
+const sqlite3 = require('sqlite3').verbose();
+// import sqlite3 from 'sqlite3';
 let db = new sqlite3.Database('./db/test.db', (err) => {
 	if (err) {
 		console.error(err.message);
