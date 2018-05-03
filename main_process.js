@@ -7,7 +7,7 @@ const {app, BrowserWindow} = electron;
 
 // Let electron reloads by itself when webpack watches changes in ./gui/
 // NOTE: This makes the OSX build version of electron app crash (module cannot be found)
-require('electron-reload')(__dirname);
+// require('electron-reload')(__dirname);
 
 // Require and run spawn for running MongoDB/GraphQL(/Express?) nodejs process
 // TODO: Add platform specific node binaries and initialization. Do I even need this now that we're using SQLite?
@@ -38,8 +38,18 @@ db.close((err) => {
 let mainWindow;
 
 app.on('ready', () => {
-    mainWindow = new BrowserWindow({width: 800, height: 600});
-    mainWindow.loadURL(`file://${__dirname}/gui/index.html`);
+    mainWindow = new BrowserWindow({
+		width: 1200,
+		height: 800,
+		resizable: false,
+		webPreferences: {
+			webSecurity: false
+		}
+    });
+
+    // TODO: ${__dirname} variable occasionally crashes the app. Error: Not allowed to load local resource: file:///
+    // mainWindow.loadURL(`file://${__dirname}/gui/index.html`);
+	mainWindow.loadURL(`file:///Users/rok/projects/webdev/nodejs/place/electron-react-webpack/gui/index.html`);
 
 	mainWindow.on('close', () => {
 		mainWindow.webContents.send('stop-server');

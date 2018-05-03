@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-export default class Login extends Component {
+export default class About extends Component {
 
 	componentWillUnmount() {
-		console.log('Component Login: unmount on router redirect');
+		console.log('Component About: unmount on router redirect');
 	}
 
 	render() {

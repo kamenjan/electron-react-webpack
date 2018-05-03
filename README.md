@@ -57,7 +57,7 @@ https://medium.com/how-to-electron/a-complete-guide-to-packaging-your-electron-a
                     ├── index.jsx
                     ├── styles.css
 
-            ├── App.jsx                 # React main component where everything is tied up
+            ├── App.js                 # React main component where everything is tied up
             ├── renderer_process.js     # Electron's renderer-process, where you React app is called.
             ├── global.css              # Global CSS and global constants go here
 

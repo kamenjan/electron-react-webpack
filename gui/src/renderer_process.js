@@ -2,7 +2,7 @@
 
 import React from 'react';
 import {render} from 'react-dom';
-import App from './App.jsx';
+import App from './App.js';
 import './global.css';
 import { ipcRenderer } from 'electron';
 
@@ -14,7 +14,4 @@ ipcRenderer.on('stop-server', (event, data) => {
 	node.kill('SIGINT');
 });
 
-render(
-    <App/>,
-    document.getElementById('app')
-);
+render( <App/>, document.getElementById('app') );

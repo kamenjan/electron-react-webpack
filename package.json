@@ -7,9 +7,9 @@
     "bundle": "webpack --mode development",
     "serve": "electron .",
     "start": "npm-run-all --parallel bundle serve",
-	"pack": "build --dir",
-	"dist": "build",
-	"postinstall": "electron-builder install-app-deps"
+    "pack": "build --dir",
+    "dist": "build",
+    "postinstall": "electron-builder install-app-deps"
   },
   "author": "J. Renato Ramos González <renato.etc.etc.etc@gmail.com>",
   "repository": "pastahito/electron-react-webpack",
@@ -23,7 +23,7 @@
     "babel-register": "6.26.0",
     "css-loader": "^0.28.10",
     "debug": "3.1.0",
-	"electron": "^1.8.2",
+    "electron": "^1.8.2",
     "electron-builder": "20.11.1",
     "electron-rebuild": "1.7.3",
     "electron-reload": "^1.2.2",
@@ -41,6 +41,7 @@
     "morgan": "1.9.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-router-dom": "4.2.2",
     "sqlite3": "4.0.0"
   },
   "build": {

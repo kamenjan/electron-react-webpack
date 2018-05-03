@@ -11,7 +11,7 @@ module.exports = {
     output: {
         path: __dirname + '/gui/dist',
         publicPath: 'dist/',
-        filename: 'bundle.js'
+        filename: 'bundle.js',
     },
 
     module: {
