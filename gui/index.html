@@ -9,4 +9,14 @@
         <div id="app"></div>
         <script src="dist/bundle.js"></script>
     </body>
+    <script>
+		const remote = require('electron').remote;
+		document.addEventListener("keydown", function (e) {
+			if (e.which === 115) {
+				remote.getCurrentWindow().toggleDevTools();
+			} else if (e.which === 116) {
+				location.reload();
+			}
+		});
+    </script>
 </html>

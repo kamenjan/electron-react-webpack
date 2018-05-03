@@ -7,7 +7,13 @@ const {app, BrowserWindow} = electron;
 
 // Let electron reloads by itself when webpack watches changes in ./gui/
 // NOTE: This makes the OSX build version of electron app crash (module cannot be found)
-// require('electron-reload')(__dirname);
+require('electron-reload')(__dirname);
+
+// Include REACT dev tools
+const { default: installExtension, REACT_DEVELOPER_TOOLS } = require('electron-devtools-installer');
+installExtension(REACT_DEVELOPER_TOOLS)
+	.then((name) => console.log(`Added Extension:  ${name}`))
+	.catch((err) => console.log('An error occurred: ', err));
 
 // Require and run spawn for running MongoDB/GraphQL(/Express?) nodejs process
 // TODO: Add platform specific node binaries and initialization. Do I even need this now that we're using SQLite?
@@ -16,22 +22,21 @@ const {app, BrowserWindow} = electron;
 // 	cwd: process.cwd()
 // });
 
-const sqlite3 = require('sqlite3').verbose();
-// import sqlite3 from 'sqlite3';
-let db = new sqlite3.Database('./db/test.db', (err) => {
-	if (err) {
-		console.error(err.message);
-	}
-	console.log('Connected to the Place database.');
-});
+// const sqlite3 = require('sqlite3').verbose();
+// let db = new sqlite3.Database('./db/test.db', (err) => {
+// 	if (err) {
+// 		console.error(err.message);
+// 	}
+// 	console.log('Connected to the Place database.');
+// });
 
 
-db.close((err) => {
-	if (err) {
-		return console.error(err.message);
-	}
-	console.log('Close the database connection.');
-});
+// db.close((err) => {
+// 	if (err) {
+// 		return console.error(err.message);
+// 	}
+// 	console.log('Close the database connection.');
+// });
 
 
 // To avoid being garbage collected
