@@ -5,6 +5,7 @@ import { MemoryRouter as Router, Route, Link } from "react-router-dom";
 import Home from './containers/Home/Home';
 import Settings from './containers/Settings/Settings';
 import About from './containers/About/About';
+import MainMenu from './components/MainMenu/MainMenu';
 
 export default class App extends Component {
 
@@ -15,21 +16,7 @@ export default class App extends Component {
 				initialIndex={0}
 			>
 				<div>
-
-					<ul>
-						<li>
-							<Link to="/">Home</Link>
-						</li>
-						<li>
-							<Link to="/settings">Settings</Link>
-						</li>
-						<li>
-							<Link to="/about">About</Link>
-						</li>
-					</ul>
-
-					<hr />
-
+					<MainMenu />
 					<Route exact path="/" component={Home} />
 					<Route path="/settings" component={Settings} />
 					<Route path="/about" component={About} />
