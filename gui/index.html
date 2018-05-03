@@ -9,14 +9,13 @@
         <div id="app"></div>
         <script src="dist/bundle.js"></script>
     </body>
+
     <script>
-		const remote = require('electron').remote;
-		document.addEventListener("keydown", function (e) {
-			if (e.which === 115) {
-				remote.getCurrentWindow().toggleDevTools();
-			} else if (e.which === 116) {
-				location.reload();
-			}
-		});
+		const isDev = require('electron-is-dev');
+		if (isDev) {
+			console.log('Render Process running in development');
+		} else {
+			console.log('Render Process running in production');
+		}
     </script>
 </html>

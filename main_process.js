@@ -1,19 +1,25 @@
+// Basic init
 // This is entry point to electron's main process
 
-// Basic init
-// import { app, BrowserWindow } from 'electron';
 const electron = require('electron');
 const {app, BrowserWindow} = electron;
+const isDev = require('electron-is-dev');
 
-// Let electron reloads by itself when webpack watches changes in ./gui/
-// NOTE: This makes the OSX build version of electron app crash (module cannot be found)
-require('electron-reload')(__dirname);
+if (isDev) {
+	// Let electron reloads by itself when webpack watches changes in ./gui/
+	require('electron-reload')(__dirname);
+	console.log('Running in development');
+} else {
+	console.log('Running in production');
+}
 
-// Include REACT dev tools
-const { default: installExtension, REACT_DEVELOPER_TOOLS } = require('electron-devtools-installer');
-installExtension(REACT_DEVELOPER_TOOLS)
-	.then((name) => console.log(`Added Extension:  ${name}`))
-	.catch((err) => console.log('An error occurred: ', err));
+
+// Include React DevTools Plugin
+// TODO: React DevTools Plugin do not work on Windows. Solve this.
+// const { default: installExtension, REACT_DEVELOPER_TOOLS } = require('electron-devtools-installer');
+// installExtension(REACT_DEVELOPER_TOOLS)
+// 	.then((name) => console.log(`Added Extension:  ${name}`))
+// 	.catch((err) => console.log('An error occurred: ', err));
 
 // Require and run spawn for running MongoDB/GraphQL(/Express?) nodejs process
 // TODO: Add platform specific node binaries and initialization. Do I even need this now that we're using SQLite?
@@ -22,6 +28,7 @@ installExtension(REACT_DEVELOPER_TOOLS)
 // 	cwd: process.cwd()
 // });
 
+// TODO: sqlite3 does not install on windows using npm. Solve this.
 // const sqlite3 = require('sqlite3').verbose();
 // let db = new sqlite3.Database('./db/test.db', (err) => {
 // 	if (err) {
@@ -52,9 +59,12 @@ app.on('ready', () => {
 		}
     });
 
-    // TODO: ${__dirname} variable occasionally crashes the app. Error: Not allowed to load local resource: file:///
-    // mainWindow.loadURL(`file://${__dirname}/gui/index.html`);
-	mainWindow.loadURL(`file:///Users/rok/projects/webdev/nodejs/place/electron-react-webpack/gui/index.html`);
+    mainWindow.loadURL(`file://${__dirname}/gui/index.html`);
+
+    // NOTE: This is is for Windows only - a temp solution for broken DevTools on Win10
+	if (process.platform === 'win32') {
+		isDev ? mainWindow.webContents.openDevTools() : null;
+	}
 
 	mainWindow.on('close', () => {
 		mainWindow.webContents.send('stop-server');
