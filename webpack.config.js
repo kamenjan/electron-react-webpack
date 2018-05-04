@@ -1,4 +1,5 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const path = require("path");
 
 module.exports = {
 
@@ -51,8 +52,13 @@ module.exports = {
         })
     ],
 
-    resolve: {
-      extensions: ['.js', '.json', '.jsx']
-    }
+	resolve: {
+		extensions: ['.js', '.json', '.jsx'],
+		modules: [
+			/* Path resolvers for application imports using absolute path */
+			path.resolve('./gui/src'),
+			path.resolve('./node_modules')
+		]
+	}
 
 };
