@@ -1,3 +1,11 @@
+/*
+* When user opens up the application he sees a white screen because no company is selected by default.
+* From here he can either:
+* 	[1] select an existing company and see the company dashboard (/company)
+* 	[2] add new company (/company/new)
+* 	[3] view global settings (/globalSettings)
+* */
+
 import React, { Component } from 'react';
 
 import { MemoryRouter as Router, Route, Link } from "react-router-dom";
@@ -24,6 +32,4 @@ export default class App extends Component {
 			</Router>
 		);
 	}
-
-
 }

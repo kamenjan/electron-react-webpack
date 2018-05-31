@@ -3,6 +3,11 @@ Try this Electron & React 16 & Webpack 4 template for a quick development and pr
 
 ![w10 sample](https://user-images.githubusercontent.com/11739632/37350993-59ad48d4-26da-11e8-9ac5-d3539cf1e2f9.PNG)
 
+
+## Note to future self:
+
+So um, yeah. This was working. It actually compiled and built for OSX and Windows. There were some hickups, but nothing unsolvable. If you ever need (and you will) cross platform app boilerplate look no further. :) 
+
 ## Install
 ``` bash
 # Clone the repository
@@ -67,7 +72,3 @@ https://medium.com/how-to-electron/a-complete-guide-to-packaging-your-electron-a
     ├── package.json
     ├── webpack.config.js               # Webpack 4 setup
 ```
-
-## Related
-- [electron-vue-webpack](https://github.com/pastahito/electron-vue-webpack) -
-Minimal Electron template using Vue 2 instead of React.

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import { Link } from "react-router-dom";
+import "./dropdown.scss";
 
 export default class Dropdown extends Component {
 
@@ -12,10 +13,7 @@ export default class Dropdown extends Component {
 	}
 
 	toggleDropdown = () => {
-		console.log('click');
-		this.setState({
-			open: true
-		})
+		this.setState({ open: !this.state.open })
 	};
 
 	render() {
@@ -39,8 +37,11 @@ export default class Dropdown extends Component {
 
 
 		return (
-			<div>
-				<div onClick={this.toggleDropdown}>Navigate</div>
+			<div
+				onClick={this.toggleDropdown}
+				className={`dropdown`}
+			>
+				<div>Navigate</div>
 				{dropdownContent}
 			</div>
 		);
